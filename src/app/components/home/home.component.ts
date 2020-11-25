@@ -14,9 +14,9 @@ export class HomeComponent implements OnInit {
 
   constructor(private _usuario: UsuariosService) {
     this._usuario.getAgents().subscribe((data: any) => {
-      console.log(data);
+      this.ArrayUsuarios = data;
     });
-    this.ArrayUsuarios = this._usuario.getAgents();
+    //this.ArrayUsuarios = this._usuario.getAgents();
   }
 
   ngOnInit(): void {

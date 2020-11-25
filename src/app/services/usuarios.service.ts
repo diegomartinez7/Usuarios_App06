@@ -14,7 +14,7 @@ export class UsuariosService {
   }
 
   getAgents(){
-    return this.hacerPeticion('?page=1').pipe(map(datos => {
+    return this.hacerPeticion('?page=1&per_page=12').pipe(map(datos => {
       return datos['data'];
     }));
   }
