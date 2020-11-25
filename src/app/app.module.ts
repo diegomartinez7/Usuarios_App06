@@ -5,14 +5,25 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
+//Importamos la constante ROUTES y el modulo para manejar rutas
+import { ROUTES } from './app.routes';
+import { RouterModule } from '@angular/router';
+
+//Para que se puedan realizar las peticiones HTTP
+import { HttpClientModule } from '@angular/common/http';
+import { BuscarComponent } from './components/buscar/buscar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    BuscarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [],
   bootstrap: [AppComponent]
