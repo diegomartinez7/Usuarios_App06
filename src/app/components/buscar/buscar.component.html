@@ -1,1 +1,19 @@
-<p>buscar works!</p>
+<div class="container mt-5">
+    <input type="search" #buscador class="form-control shadow" placeholder="Buscar agentes en archivos especiales" (keyup)="hacerBusqueda(buscador.value)" style="font-size: 1.5em;">
+    <div class="row mt-5">
+        <div class="card mb-3 m-2 text-white bg-dark" style="max-width: 540px;" *ngFor="let usuario of ArrayResultados">
+            <div class="row no-gutters">
+                <div class="col-md-5">
+                <img [src]="usuario.avatar" class="card-img" alt="...">
+                </div>
+                <div class="col-md-7">
+                <div class="card-body">
+                    <h4 class="card-title">{{usuario.last_name}} <span class="h5 text-secondary">{{usuario.first_name}}</span></h4>
+                    <p class="card-text">Puedes contactar a este agente en una línea cifrada, libre de interferencias e irrastreable, por medio del siguiente correo: <span class="text-primary">{{usuario.email}}</span></p>
+                    <button class="btn btn-block grad_gris" (click)="contactar(usuario.id)">Contactar</button>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

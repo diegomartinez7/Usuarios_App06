@@ -1,0 +1,26 @@
+<div class="container mt-5">
+    <div class="alert alert-dark" role="alert" *ngIf="infoActiva">
+        <h3 class="alert-heading text-center">Identificador F.M.I: {{Agente.id}}</h3>
+        <div class="card mb-3 m-2 text-white bg-dark">
+            <div class="row no-gutters">
+                <div class="col-md-6">
+                <img [src]="Agente.avatar" class="card-img" alt="...">
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body text-justify">
+                        <h4 class="card-title">{{Agente.last_name}} <span class="h5 text-secondary">{{Agente.first_name}}</span></h4>
+                        <p class="card-text">Este agente se especializa en una amplia gama de estilos de combate, tiene una percepción y astucia que lo posicionan como uno de nuestros mejores elementos, pues su capacidad para resolver los casos potencialmente más peligrosos y poder salir de las situciones más complejas, son habilidades únicas que sólo se pueden conseguir dentro de la F.M.I. </p>
+                        <hr>
+                        <p>El encuentro con este individuo será llevado en su totalidad con la mayor sutileza, en realidad usted no intentará hacer contacto con él, él lo contactará a usted. Así que esté preparado y sea perceptivo a cada señal latente, se le proporcionará una dirección de correo electrónica de este agente la cual se encuentra en un servicio cifrado y lejos del país, úselo con sabiduría y si alguien recupera esta información sin su permiso, destrúyala de inmediato: <span class="text-primary">{{Agente.email}}</span></p>
+                    </div>
+                    <button class="btn btn-block grad_red col-10 m-auto" (click)="infoDestroy(Agente.id)">Destruir información</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="!infoActiva">
+        <h1>Jamás hubo información para consultar en esta página</h1>
+        <h2 class="text-secondary mt-5 mb-5">Regresa al inicio, se ha iniciado un mecanismo de cifrado automático</h2>
+        <button class="btn grad_gris btn-lg" [routerLink]="['../../home']">Volver</button>
+    </div>
+</div>

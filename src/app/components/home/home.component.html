@@ -11,7 +11,7 @@
                     <div class="card-body">
                       <h4 class="card-title">{{usuario.last_name}} <span class="h5 text-secondary">{{usuario.first_name}}</span></h4>
                       <p class="card-text">Puedes contactar a este agente en una línea cifrada, libre de interferencias e irrastreable, por medio del siguiente correo: <span class="text-primary">{{usuario.email}}</span></p>
-                      <button class="btn btn-block grad_gris">Contactar</button>
+                      <button class="btn btn-block grad_gris" (click)="contactar(usuario.id)">Contactar</button>
                     </div>
                   </div>
                 </div>

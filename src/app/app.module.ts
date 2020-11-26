@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { BuscarComponent } from './components/buscar/buscar.component';
 import { AboutComponent } from './components/about/about.component';
+import { AgenteComponent } from './components/agente/agente.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AboutComponent } from './components/about/about.component';
     HomeComponent,
     NavbarComponent,
     BuscarComponent,
-    AboutComponent
+    AboutComponent,
+    AgenteComponent
   ],
   imports: [
     BrowserModule,

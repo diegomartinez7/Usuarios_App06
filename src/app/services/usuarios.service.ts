@@ -18,4 +18,14 @@ export class UsuariosService {
       return datos['data'];
     }));
   }
+
+  getIndividual(id){
+    return this.hacerPeticion(`/${id}`).pipe(map(datos => {
+      return datos['data'];
+    }));
+  }
+
+  deleteAgent(id){
+    this.http.delete(`https://reqres.in/api/users${id}`);
+  }
 }
