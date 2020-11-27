@@ -28,4 +28,10 @@ export class UsuariosService {
   deleteAgent(id){
     this.http.delete(`https://reqres.in/api/users${id}`);
   }
+
+  createAgent(objeto: any){
+    return this.http.post('https://reqres.in/api/users',objeto).pipe(map(datos => {
+      return datos;
+    }));
+  }
 }

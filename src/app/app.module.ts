@@ -11,9 +11,14 @@ import { RouterModule } from '@angular/router';
 
 //Para que se puedan realizar las peticiones HTTP
 import { HttpClientModule } from '@angular/common/http';
+
+//Para tener un formulario reactivo
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { BuscarComponent } from './components/buscar/buscar.component';
 import { AboutComponent } from './components/about/about.component';
 import { AgenteComponent } from './components/agente/agente.component';
+import { RegistroComponent } from './components/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +27,13 @@ import { AgenteComponent } from './components/agente/agente.component';
     NavbarComponent,
     BuscarComponent,
     AboutComponent,
-    AgenteComponent
+    AgenteComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [],

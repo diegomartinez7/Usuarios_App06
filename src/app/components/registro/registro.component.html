@@ -1,0 +1,30 @@
+<div class="container mt-5 text-white text-center">
+    <h2>Registro para agentes que han superado las pruebas de campo</h2>
+    <div class="grad_bw pt-3 pb-3 mt-5">
+        <form autocomplete="off" [formGroup]="form" (ngSubmit)="infoCreate()" class="col-9 ml-auto mr-auto" style="font-size: 1.2em;">
+            <div class="form-group row">
+                <label class="col-form-label">Nombre:</label>
+                <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre" [class.is-invalid]="validNombre">
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label">Trabajo:</label>
+                <input type="text" class="form-control" placeholder="Trabajo" formControlName="trabajo" [class.is-invalid]="validTrabajo">
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label">Correo:</label>
+                <input type="email" class="form-control" placeholder="Correo" formControlName="correo" [class.is-invalid]="validCorreo">
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label">Contraseña:</label>
+                <input type="password" class="form-control" formControlName="clave" [class.is-invalid]="validClave">
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label">Confirmar contraseña:</label>
+                <input type="password" class="form-control" formControlName="check_clave" [class.is-invalid]="validCheck">
+            </div>
+            <div class="form-group row">
+                <button type="submit" class="btn btn-block grad_red mt-3">Registrar</button>
+            </div>
+        </form>
+    </div>
+</div>
