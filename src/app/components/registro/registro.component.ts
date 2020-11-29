@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuariosService } from 'src/app/services/usuarios.service';
+import { ValidarPassService } from 'src/app/services/validarPass/validar-pass.service';
 
 @Component({
   selector: 'app-registro',
@@ -12,7 +13,7 @@ export class RegistroComponent implements OnInit {
   //Variable del formulario
   form: FormGroup;
 
-  constructor(private _formB: FormBuilder, private _usuarios: UsuariosService) {
+  constructor(private _formB: FormBuilder, private _usuarios: UsuariosService, private _valido: ValidarPassService) {
     this.crearForm();
   }
 
@@ -26,6 +27,8 @@ export class RegistroComponent implements OnInit {
       correo: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
       clave: ['', Validators.required],
       check_clave: ['', Validators.required]
+    }, {
+      validators: this._valido.confirmarPass('clave','check_clave')
     });
   }
 
@@ -53,14 +56,15 @@ export class RegistroComponent implements OnInit {
   }
 
   infoCreate(){
-    var objeto: any = {
-      "name": this.form.get('nombre'),
-      "job": this.form.get('trabajo')
-    }
+    if(!this.form.invalid){
+      var objeto = {
+        "name": this.form.get('nombre').value,
+        "job": this.form.get('trabajo').value
+      }
 
-    //this._usuarios.createAgent(objeto).subscribe((data: any) => {
-      //console.log(data);
-    //});
-    console.log(this._usuarios.createAgent(objeto));
+      this._usuarios.createAgent(objeto).subscribe((data: any) => {
+        console.log(data);
+      });
+    }
   }
 }

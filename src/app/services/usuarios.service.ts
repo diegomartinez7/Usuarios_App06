@@ -30,8 +30,6 @@ export class UsuariosService {
   }
 
   createAgent(objeto: any){
-    return this.http.post('https://reqres.in/api/users',objeto).pipe(map(datos => {
-      return datos;
-    }));
+    return this.http.post('https://reqres.in/api/users',objeto);
   }
 }
